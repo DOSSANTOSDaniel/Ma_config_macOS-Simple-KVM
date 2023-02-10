@@ -11,13 +11,13 @@ fi
 
 # Choix d'un disque externe d'installation
 PS3="Votre choix : "
-mapfile -t USBDEVICES < <(ls -l /dev/disk/by-id/wwn-0x* | grep -vE "[[:digit:]]$" | awk -F ' /' '{print "/"$2}')
+mapfile -t USBDEVICES < <(ls -l /dev/disk/by-id/* | grep -vE "[[:digit:]]$" | awk -F ' /' '{print "/"$2}')
 
-echo -e "\n ----- Résumé des disques ----- "
+echo -e "\n ----- Informations complémentaires sur les disques ----- "
 lsblk -ld -I 8 -o NAME,TYPE,SIZE,MODEL
 echo -e "-------------------------------- \n"
 
-echo " ----- Menu disques ----- "
+echo " ----- Menu des différents liens vers les disques ----- "
 select ITEM in "${USBDEVICES[@]}" 'Quitter'
 do
   if [[ $ITEM == 'Quitter' ]]
