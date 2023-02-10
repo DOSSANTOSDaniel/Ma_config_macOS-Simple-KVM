@@ -15,7 +15,6 @@ Pour faire cette installation j’ai utilisé :
 2. Configuration du son.
 3. Choix des paramètres automatisé.
 4. Configuration d'une connexion SSH.
-5. Passthrough USB.
 
 ## Vérification si la virtualisation est supportée sur le système
 ```bash
@@ -43,13 +42,18 @@ Exemple avec la version catalina :
 ```
 
 ## Lancer l'installation de macOS
-Copier le fichier basic.sh contenu dans le dossier Ma_config_macOS-Simple-KVM puis colle ce fichier dans le dossier macOS-Simple-KVM en écrasant l'ancien, puis lancer l'installation avec la commande :
+Copier le fichier basic.sh contenu dans le dossier Ma_config_macOS-Simple-KVM puis colle ce fichier dans le dossier macOS-Simple-KVM en écrasant l'ancien, puis lancer l'installation avec la commande.
+
 ```bash
 ./basic.sh
 ```
 Par la suite pour lancer la machine virtuelle macOS on utilise la même commande.
 
 ![demo](img.png)
+
+## Autre
+* Raccourci pour libérer le curseur : <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>g</kbd>
+* Faire le symbole pipe sur mac : <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>l</kbd>
 
 ## Aides
 * [Docummentation Qemu](https://qemu.readthedocs.io/en/latest/index.html)
@@ -59,4 +63,5 @@ Par la suite pour lancer la machine virtuelle macOS on utilise la même commande
 
 ## Améliorations
 - [ ] Mise en place du PCIe Passthrough.
+- [ ] Mise en place du Passthrough USB.
 - [ ] Optimiser la configuration de la VM...
