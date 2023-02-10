@@ -55,6 +55,36 @@ QEMUAUDIOSERVER="/run/user/${IDHOSTUSER}/pulse/native"
 # Port SSH : ssh -p 2222 user@127.0.0.1
 HOSTSSHPORT='2222'
 
+clear
+
+cat << EOF
+       ___ Script  : $(basename ${0}) ___
+       
+  ----------------- Résumé -----------------
+  ------------------------------------------
+  
+  Utilisateur : $HOSTUSER
+  
+  Disque : $PHYSICALDISK
+  
+  RAM : $VMRAM
+  
+  CPU_Threads : $CPUTHREADS
+  CPU_Cores : $CPUCORES
+  CPU_Sockets : $CPUSOCKETS
+  CPU_Total_Threads : $TOTALTHREADS
+  
+  AUDIO_Device : $QEMUAUDIO
+  AUDIO_Server : $QEMUAUDIOSERVER
+  
+  Connexion SSH : ssh -p 2222 <USER>@127.0.0.1  
+  
+  
+  
+EOF
+
+read -p "Appuyez sur Entrée pour continuer ! "
+
 qemu-system-x86_64 \
     -m ${VMRAM} \
     -machine q35,accel='kvm' \
