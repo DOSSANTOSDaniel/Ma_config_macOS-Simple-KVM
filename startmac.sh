@@ -310,6 +310,7 @@ sudo chown ${HOSTUSER}:${HOSTUSER} $PHYSICALDISK
 clear
 
 cat << EOF
+
            ___ $(basename ${0}) ___
        
   ----------------- Résumé -----------------
@@ -321,8 +322,6 @@ cat << EOF
   
   $BANVERSIONMAC
   
-  Host OpenGL ES :---------: $GLSUPPORT
-  
   RAM vm :-----------------: $VMRAM
   
   Host CPU Model :---------: $MODELCPU
@@ -333,11 +332,8 @@ cat << EOF
   Vm CPU_Total_Threads :---: $TOTALTHREADS
   
   Connexion SSH :----------: ssh -p 2222 <USER>@127.0.0.1
-  
-  Host AUDIO_Device :------: $QEMUAUDIO
-  AUDIO_Server :-----------: $QEMUAUDIOSERVER
 
-  
+
 EOF
 
 read -p "Appuyez sur Entrée pour continuer ! "
