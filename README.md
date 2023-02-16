@@ -33,7 +33,7 @@ Option 3: ./startmac.sh -h    Affiche l'aide.
 
 1. Téléchargement du dépôt Ma_config_macOS-Simple-KVM
 ```bash
-git clone https://github.com/DOSSANTOSDaniel/Ma_config_macOS-Simple-KVM.git
+git clone https://github.com/DOSSANTOSDaniel/Ma_config_macOS-Simple-KVM.git && cd Ma_config_macOS-Simple-KVM
 ```
 
 2. Démarrer une nouvelle installation
