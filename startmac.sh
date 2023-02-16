@@ -357,7 +357,7 @@ qemu-system-x86_64 \
     -drive if='pflash',format='raw',readonly='on',file="${OVMF}/OVMF_CODE.fd" \
     -drive if='pflash',format='raw',file="${OVMF}/OVMF_VARS-1024x768.fd" \
     -display gtk,window-close='on' \
-    -device qxl-vga,vgamem_mb='128' \
+    -device VGA,vgamem_mb='128' \
     -k fr \
     -L /usr/share/seabios/ \
     -L /usr/lib/ipxe/qemu/ \
