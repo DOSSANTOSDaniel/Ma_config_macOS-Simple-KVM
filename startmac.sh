@@ -40,7 +40,7 @@ InstallDep() {
   then
     if (command -v apt-get 2> /dev/null)
     then
-      for APPINSTALL in 'qemu-system-x86' 'qemu-utils' 'python3' 'python3-pip' 'bc' 'git' 'mesa-utils'
+      for APPINSTALL in 'qemu-system-x86' 'qemu-utils' 'python3' 'python3-pip' 'bc' 'git'
       do
         if ! (dpkg -L "${APPINSTALL}" 2> /dev/null)
         then
@@ -54,7 +54,7 @@ InstallDep() {
       done
     elif (command -v dnf 2> /dev/null)
     then
-      for APPINSTALL in 'qemu' 'qemu-img' 'python3' 'python3-pip' 'bc' 'git' 'glx-utils'
+      for APPINSTALL in 'qemu' 'qemu-img' 'python3' 'python3-pip' 'bc' 'git'
       do  
         if ! (rpm -ql ${APPINSTALL} 2> /dev/null)
         then  
@@ -68,7 +68,7 @@ InstallDep() {
       done
     elif (command -v pacman 2> /dev/null)
     then
-      for APPINSTALL in 'qemu' 'python' 'python-pip' 'python-wheel' 'bc' 'git' 'glxinfo' #qemu-headless
+      for APPINSTALL in 'qemu' 'python' 'python-pip' 'python-wheel' 'bc' 'git'
       do  
         if ! (pacman -Ql ${APPINSTALL} 2> /dev/null)
         then
@@ -162,9 +162,6 @@ QEMUAUDIOSERVER="/run/user/${IDHOSTUSER}/pulse/native"
 # Port SSH : ssh -p 2222 user@127.0.0.1
 HOSTSSHPORT='2222'
 USB_OPTION=" "
-
-# OpenGL
-GLSUPPORT='on'
 
 # BIOS
 OSK='ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'
@@ -309,13 +306,6 @@ set +e
 sudo umount /dev/${NAMEDISK}*
 set -e 
 sudo chown ${HOSTUSER}:${HOSTUSER} $PHYSICALDISK
-
-# If OpenGL ES profile shading language is too old, GLSL ES 3.00 is not supported
-GLVERSION=$(glxinfo -B | grep 'OpenGL ES profile shading language version string' | awk '{print $12}' | cut -d'.' -f1)
-if [[ $GLVERSION -lt 3 ]]
-then 
-  GLSUPPORT='off'
-fi
 
 clear
 
